@@ -1,6 +1,8 @@
 <?php
 
-use App\Models\CompanyProfile;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\SettingController;
+// use App\Models\CompanyProfile;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard',function () {
+Route::get('/dashboard', function () {
     return view('layouts.dashboard');
 });
-Route::resource('/companyprofile',CompanyProfile::class);
-
+Route::resource('/companyprofile', CompanyController::class);
+Route::resource('/setting', SettingController::class);

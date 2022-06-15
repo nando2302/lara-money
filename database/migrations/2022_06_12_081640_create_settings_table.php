@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompanyProfilesTable extends Migration
+class CreateSettingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateCompanyProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('company_profiles', function (Blueprint $table) {
+        Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->string('appname');
             $table->string('nameCompany');
             $table->string('phoneCompany');
-            $table->string('emailCompany');
+            $table->string('emailCompany')->unique();
             $table->string('addressCompany');
             $table->string('descCompany');
+            $table->string('logoCompany')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreateCompanyProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company_profiles');
+        Schema::dropIfExists('settings');
     }
 }

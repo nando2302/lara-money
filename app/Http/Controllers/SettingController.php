@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CompanyProfile;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
-class CompanyController extends Controller
+class SettingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $profilecompany = CompanyProfile::get()->latest();
-        return view('admin.company.index',compact('profilecompany'));
+        // $setting = Setting::latest()->get();
+        $data = 'dont have data';
+        return view('admin.Setting/setting', compact('data'));
     }
 
     /**
@@ -26,6 +27,7 @@ class CompanyController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -36,7 +38,6 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
