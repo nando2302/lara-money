@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\CompanyController;
+// use App\Http\Controllers\CompanyController;
+
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\SettingController;
-// use App\Models\CompanyProfile;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,5 +24,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('layouts.dashboard');
 });
-Route::resource('/companyprofile', CompanyController::class);
-Route::resource('/setting', SettingController::class);
+
+Route::get('/setting', [SettingController::class, 'index'])->name('setting');
+Route::put('/setting/update', [SettingController::class, 'update'])->name('setting.update');
+// Route::post(`/setting/update{$id}`, [SettingController::class, 'update'])->name('setting.update');
+Route::resource('/kategori', KategoriController::class);
