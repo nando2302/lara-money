@@ -14,9 +14,10 @@ class CreateAkunsTable extends Migration
     public function up()
     {
         Schema::create('akuns', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('no_akun');
-            $table->string('nama_akun', 50);
+            $table->id();
+            $table->string('nama');
+            $table->string('kode');
+            $table->string('parent_kode');
             $table->timestamps();
         });
     }
